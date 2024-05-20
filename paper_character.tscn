@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://g4v3k0cbv7qn"]
+
+[ext_resource type="Script" path="res://paper_character.gd" id="1_i26k8"]
+[ext_resource type="Texture2D" uid="uid://dgkxbkbykwks1" path="res://icon.svg" id="1_ytiyd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ylnlq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ytiyd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qt8bj"]
+radius = 0.636542
+height = 1.27308
+
+[node name="PaperCharacter" type="CharacterBody3D"]
+script = ExtResource("1_i26k8")
+
+[node name="Sprite" type="AnimatedSprite3D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ylnlq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_qt8bj")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 2, 4)
